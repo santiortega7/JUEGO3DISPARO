@@ -6,25 +6,30 @@ public class Moviemiento : MonoBehaviour
 {
 	// Start is called before the first frame update
 
-	public float velocidad = 10.4f;
+	public float velocidad;
 
 	public float movimientoHorizontal;
 	public float movimientoVertical;
 	[SerializeField]
-	private bool disparotriple = false;
+	private bool powerUpvelocidad = false;
+	//private bool disparotriple = false;
 
-	public GameObject laser;
+	//public GameObject laser;
 
 	void Start()
 	{
-
+		velocidad = 2.0f;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		movimiento();
-		disparo();
+		//movimiento();
+		//disparo();
+		float Horizontal = Input.GetAxis ("Horizontal") * velocidad * Time.deltaTime;
+		print (Horizontal);
+		transform.Translate (Horizontal, 0, 0);
+		aumentarVelocidad ();
 	}
 
 	void movimiento()
@@ -53,26 +58,42 @@ public class Moviemiento : MonoBehaviour
 		}
 	}
 
-	void disparo()
+	//void disparo()
+	//{
+	//if (disparotriple == true && Input.GetKey(KeyCode.Space))
+	//{
+	//		Instantiate(laser, transform.position + new Vector3(0, 0.5f, -3.08f), Quaternion.identity);
+	//		Instantiate(laser, transform.position + new Vector3(0.2f,0, -3.08f), Quaternion.identity);
+	//		Instantiate(laser, transform.position + new Vector3(-0.2f, 0, -3.08f), Quaternion.identity);
+	//	}
+	//	else if (Input.GetKey(KeyCode.Space))
+	//	{
+	//		
+	//		Instantiate(laser, transform.position + new Vector3(0, 0.5f, -3.08f), Quaternion.identity);
+	//}
+
+
+//	}
+
+	void aumentarVelocidad()
 	{
-	if (disparotriple == true && Input.GetKey(KeyCode.Space))
-	{
-			Instantiate(laser, transform.position + new Vector3(0, 0.5f, -3.08f), Quaternion.identity);
-			Instantiate(laser, transform.position + new Vector3(0.2f,0, -3.08f), Quaternion.identity);
-			Instantiate(laser, transform.position + new Vector3(-0.2f, 0, -3.08f), Quaternion.identity);
+
+		float horizontal = Input.GetAxis ("Horizontal");
+
+		if (powerUpvelocidad == true) {
+
+			transform.Translate (Vector3.right * velocidad * 5.0f * horizontal * Time.deltaTime);
+		} else {
+			transform.Translate (Vector3.right * velocidad *  horizontal * Time.deltaTime);
+
+
 		}
-		else if (Input.GetKey(KeyCode.Space))
-		{
-			
-			Instantiate(laser, transform.position + new Vector3(0, 0.5f, -3.08f), Quaternion.identity);
-	}
-
 
 	}
 
-	public void disparoTripleOn()
+	public void Poweer()
 	{
-		disparotriple = true;
+		powerUpvelocidad = true;
 		StartCoroutine (powerDown());
 	}
 
@@ -81,7 +102,7 @@ public class Moviemiento : MonoBehaviour
 	IEnumerator powerDown()
 	{
 		yield return new WaitForSeconds (5.0f);
-		disparotriple = false;
+		powerUpvelocidad = false;
 	}
 
 

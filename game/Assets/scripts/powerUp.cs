@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class powerUp : MonoBehaviour {
 
-	public float velocidadUp = 3.5f;
+	public float velocidadUp;
 	void Start () {
+		velocidadUp = 2.0f;
 	}
 
 	void Update () {
@@ -13,16 +14,17 @@ public class powerUp : MonoBehaviour {
 	}
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player") 
-		{
+		Debug.Log ("estoy colisionando con - "+ other.name);
+		if (other.tag == "Player") {
 			Moviemiento player = other.GetComponent<Moviemiento > ();
+			if (player != null) {
+				player.Poweer ();
 
-			player.disparoTripleOn ();
-
-
+			}
+		}
 			Destroy (this.gameObject);
 		}
 			
 	}
 
-}
+

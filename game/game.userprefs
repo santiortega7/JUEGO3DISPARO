@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Moviemiento.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\powerUp.cs">
     <Files>
-      <File FileName="Assets\scripts\Moviemiento.cs" Line="62" Column="31" />
-      <File FileName="Assets\scripts\powerUp.cs" Line="22" Column="4" />
+      <File FileName="Assets\scripts\Moviemiento.cs" Line="26" Column="3" />
+      <File FileName="Assets\scripts\powerUp.cs" Line="29" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

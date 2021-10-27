@@ -386,8 +386,7 @@ MonoBehaviour:
   velocidad: 10
   movimientoHorizontal: 0
   movimientoVertical: 0
-  disparotriple: 0
-  laser: {fileID: 1825982094968532, guid: 99a7922b0adc81f41830338f41df887d, type: 2}
+  powerUpvelocidad: 0
 --- !u!50 &633986970
 Rigidbody2D:
   serializedVersion: 4
@@ -693,4 +692,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74dbb17e2d3bdf4f9204a9632a8bc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadUp: 3.5
+  velocidadUp: 0
